@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Profiles(models.Model):
-    name = models.CharField(max_length=64)
+    tytul = models.CharField(max_length=64)
     rok = models.PositiveSmallIntegerField(default=2000)
 
     def __str__(self):
@@ -11,7 +11,7 @@ class Profiles(models.Model):
         return "{} ({})".format(self.tytul, self.rok)
 
 class Training(models.Model):
-    name = models.CharField(max_length=64)
+    tytul = models.CharField(max_length=64)
     rok = models.PositiveSmallIntegerField(default=2000)
 
     def __str__(self):
@@ -20,7 +20,7 @@ class Training(models.Model):
         return "{} ({})".format(self.tytul, self.rok)
 
 class Exercise(models.Model):
-    name = models.CharField(max_length=64)
+    tytul = models.CharField(max_length=64)
     rok = models.PositiveSmallIntegerField(default=2000)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Exercise(models.Model):
         return "{} ({})".format(self.tytul, self.rok)
 
 class TrainingDate(models.Model):
-    name = models.CharField(max_length=64)
+    tytul = models.CharField(max_length=64)
     rok = models.PositiveSmallIntegerField(default=2000)
 
     def __str__(self):
@@ -38,7 +38,7 @@ class TrainingDate(models.Model):
         return "{} ({})".format(self.tytul, self.rok)
 
 class TrainingDetails(models.Model):
-    name = models.CharField(max_length=64)
+    tytul = models.CharField(max_length=64)
     rok = models.PositiveSmallIntegerField(default=2000)
 
     def __str__(self):

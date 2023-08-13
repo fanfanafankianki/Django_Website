@@ -9,20 +9,20 @@ from .models import TrainingDetails
 # Create your views here.
 def return_all_profiles(request):
     test=Profiles.objects.all()
-    return render(request, "filmy.html", {'filmy': test})
+    return render(request, "profiles/profiles.html", {'profiles': test})
 
 def return_all_trainings(request):
     test=Training.objects.all()
-    return render(request, "filmy.html", {'filmy': test})
+    return render(request, "trainings/trainings.html", {'trainings': test})
 
 def return_all_exercises(request):
     test=Exercise.objects.all()
-    return render(request, "filmy.html", {'filmy': test})
+    return render(request, "exercises/exercises.html", {'exercises': test})
 
 def return_all_training_dates(request):
     test=TrainingDate.objects.all()
-    return render(request, "filmy.html", {'filmy': test})
+    return render(request, "training_dates/training_dates.html", {'training_dates': test})
 
 def return_all_training_details(request):
     test=TrainingDetails.objects.all()
-    return render(request, "filmy.html", {'filmy': test})
+    return render(request, "training_details/training_details.html", {'training_details': test})

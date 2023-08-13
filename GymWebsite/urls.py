@@ -16,7 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Website_training_objects.views import return_all_profiles
+from Website_training_objects.views import return_all_trainings
+from Website_training_objects.views import return_all_exercises
+from Website_training_objects.views import return_all_training_dates
+from Website_training_objects.views import return_all_training_details
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('templates/profiles/', return_all_profiles),
+    path('templates/trainings/', return_all_trainings),
+    path('templates/exercises/', return_all_exercises),
+    path('templates/training_dates/', return_all_training_dates),
+    path('templates/training_details/', return_all_training_details),
 ]
