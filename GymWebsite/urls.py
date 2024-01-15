@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
+from django.conf.urls import include
 from django.conf.urls.static import static
 from Website_training_objects.views import (
     return_user_profile,
@@ -84,6 +85,7 @@ from Website_diet_objects.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),    
     path('profile_info/<int:id>/', return_user_profile, name='user_profiles'),
 
     path('exercises/', return_all_exercises, name='exercises'),
