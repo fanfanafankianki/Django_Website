@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
+from django.conf.urls import include
 from django.conf.urls.static import static
 from Website_training_objects.views import (
     return_user_profile,
@@ -28,6 +29,11 @@ from Website_training_objects.views import (
     create_exercises,
     edit_exercises,
     delete_exercises,
+
+    return_testing,
+    create_testing,
+    edit_testing,
+    delete_testing,
 
     return_training,
     create_training,
@@ -79,6 +85,7 @@ from Website_diet_objects.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),    
     path('profile_info/<int:id>/', return_user_profile, name='user_profiles'),
 
     path('exercises/', return_all_exercises, name='exercises'),
@@ -99,6 +106,11 @@ urlpatterns = [
     path('new_exercise/', create_exercises, name='new_exercise'),
     path('edit_exercise/<int:id>/', edit_exercises, name='edit_exercise'),
     path('delete_exercise/<int:id>/', delete_exercises, name='delete_exercise'),
+
+    path('testing_info/<int:id>/', return_testing, name='return_testing'),
+    path('new_testing/', create_testing, name='create_testing'),
+    path('edit_testing/<int:id>/', edit_testing, name='edit_testing'),
+    path('delete_testing/<int:id>/', delete_testing, name='delete_testing'),
 
     path('training_info/<int:id>/', return_training, name='return_training'),
     path('new_training/', create_training, name='create_training'),
