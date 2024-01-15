@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, Exercise, Training, TrainingWithExercises, TrainingHistory, TrainingDetails
+from .models import UserProfile, Exercise, Testing, Training, TrainingWithExercises, TrainingHistory, TrainingDetails
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
@@ -34,3 +34,9 @@ class TrainingHistoryAdmin(admin.ModelAdmin):
 class TrainingDetailsAdmin(admin.ModelAdmin):
     list_display = ["training_history", "exercise", "weight", "reps"]
     list_filter = ("exercise",)
+
+@admin.register(Testing)
+class TestingAdmin(admin.ModelAdmin):
+    list_display = ["name", "imagePath", "description"]
+    list_filter = ("name",)
+    search_fields = ("name",)

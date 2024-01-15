@@ -66,3 +66,11 @@ class TrainingDetails(models.Model):
 
     def __str__(self):
         return f"Details: Training History: {self.training_history}, Exercise: {self.exercise.exercise_name}, Weight: {self.weight}, Reps: {self.reps}"
+
+class Testing(models.Model):
+    name = models.CharField(max_length=55)
+    imagePath = models.ImageField(upload_to="testing_images", null=True, blank=True)
+    description = models.CharField(max_length=55)
+
+    def __str__(self):
+        return f"Name: {self.name}, image {self.imagePath}, description: {self.description}"

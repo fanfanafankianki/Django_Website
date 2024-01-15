@@ -29,6 +29,11 @@ from Website_training_objects.views import (
     edit_exercises,
     delete_exercises,
 
+    return_testing,
+    create_testing,
+    edit_testing,
+    delete_testing,
+
     return_training,
     create_training,
     edit_training,
@@ -99,6 +104,11 @@ urlpatterns = [
     path('new_exercise/', create_exercises, name='new_exercise'),
     path('edit_exercise/<int:id>/', edit_exercises, name='edit_exercise'),
     path('delete_exercise/<int:id>/', delete_exercises, name='delete_exercise'),
+
+    path('testing_info/<int:id>/', return_testing, name='return_testing'),
+    path('new_testing/', create_testing, name='create_testing'),
+    path('edit_testing/<int:id>/', edit_testing, name='edit_testing'),
+    path('delete_testing/<int:id>/', delete_testing, name='delete_testing'),
 
     path('training_info/<int:id>/', return_training, name='return_training'),
     path('new_training/', create_training, name='create_training'),

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import UserProfile, Exercise, Training, TrainingWithExercises, TrainingHistory, TrainingDetails
-from .forms import UserProfileForm, ExerciseForm, TrainingForm, TrainingWithExercisesForm, TrainingHistoryForm, TrainingDetailsForm
+from .models import UserProfile, Exercise, Testing, Training, TrainingWithExercises, TrainingHistory, TrainingDetails
+from .forms import UserProfileForm, ExerciseForm, TestingForm, TrainingForm, TrainingWithExercisesForm, TrainingHistoryForm, TrainingDetailsForm
 
 #Profile
 def return_user_profile(request, id):
@@ -69,6 +69,40 @@ def delete_exercises(request, id):
 
     return render(request, "profile_info/exercises_delete.html", {'exercise_delete': exercise})
 
+#Testing
+def return_all_testings(request):
+    testings = Testing.objects.all()
+    return render(request, "profile_info/testings_instance.html", {'testings': testings})
+
+def return_testing(request, id):
+    testings = TestingForm.objects.filter(id=id)
+    return render(request, "profile_info/testing_instance.html", {'testings': testings})
+
+def create_testing(request):
+    create_form = TestingForm(request.POST or None, request.FILES or None)
+
+    if create_form.is_valid():
+        create_form.save()
+
+    return render(request, "profile_info/testing_instance_new.html", {'testing_new': create_form})
+
+def edit_testing(request, id):
+    instance_object = get_object_or_404(Testing, pk=id)
+    edit_form = TestingForm(request.POST or None, request.FILES or None, instance=instance_object)
+
+    if edit_form.is_valid():
+        edit_form.save()
+
+    return render(request, "profile_info/testing_instance_new.html", {'testing_new': edit_form})
+
+def delete_testing(request, id):
+    instance_object = get_object_or_404(Testing, pk=id)
+
+    if request.method == "POST":
+        instance_object.delete()
+        return redirect(new_profile)
+
+    return render(request, "profile_info/testing_instance_delete.html", {'testing_delete': instance_object})
 
 #Trainings
 def return_all_trainings(request):
