@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,10 +24,8 @@ SECRET_KEY = 'django-insecure-(2tfl7cj_@dx18c3evpn3p_5ad7d4i^opha%z-6e55futt0fg#
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['localhost','db']
+#COOOS
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,6 +55,8 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+
+
 ROOT_URLCONF = 'GymWebsite.urls'
 
 TEMPLATES = [
@@ -81,12 +81,25 @@ WSGI_APPLICATION = 'GymWebsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'testing_db',
+        'USER': 'postgres',
+        'PASSWORD': 'admin123',
+        'HOST': 'db',   # Może być inny adres, jeśli baza danych jest zdalna
+        'PORT': '5432',        # Standardowy port PostgreSQL
     }
 }
+
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
 
 # Password validation
