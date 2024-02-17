@@ -13,7 +13,7 @@ import string
   #DELETE QUEUE                     > rabbitmqadmin --username=user --password=password -V my_vhost delete queue name=moja_kolejka
 
 rmq_config = {
-    "host": "my_rb",
+    "host": "myrb",
     "user": "user",
     "password": "password",
     "port": "5672",
