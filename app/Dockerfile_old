@@ -1,0 +1,25 @@
+# Użyj obrazu bazowego Python
+FROM python:3.9-slim
+
+# Ustaw zmienne środowiskowe
+ENV PYTHONUNBUFFERED 1
+
+# Utwórz katalog aplikacji
+WORKDIR /app
+
+# Skopiuj pliki requirements.txt do katalogu aplikacji
+COPY requirements.txt /app/
+
+# Zainstaluj zależności
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+# Skopiuj całą aplikację do katalogu aplikacji
+COPY . /app/
+
+# Otwórz port 8000 na potrzeby serwera aplikacji
+EXPOSE 8000
+
+# Uruchom migracje i serwer aplikacji
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+
